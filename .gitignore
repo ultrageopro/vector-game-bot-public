@@ -1,0 +1,14 @@
+/logs.log
+/.vector_cache
+/.vscode
+/__pycache__
+/models/__pycache__
+/database/__pycache__
+/database/games.json
+/database/queue.json
+/bin
+/include
+/lib
+/lib64
+pyvenv.cfg
+/share

@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  vectorgamebot:
+    image: vectorgamebot
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 bot.py "]
+    ports:
+      - 5678:5678
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "main"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "penis123456"
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
